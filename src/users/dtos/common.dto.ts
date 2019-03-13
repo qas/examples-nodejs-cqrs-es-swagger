@@ -7,7 +7,7 @@ export class UserIdRequestParamsDto {
 
 export class UserDto {
   @IsString()
-  readonly id!: string;
+  readonly user_id!: string;
   @IsString()
   readonly firstName!: string;
   @IsString()

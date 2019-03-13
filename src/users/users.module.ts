@@ -12,7 +12,6 @@ import { EventStore } from '../core/event-store/event-store';
 import { UserCreatedEvent } from './events/impl/user-created.event';
 import { UserDeletedEvent } from './events/impl/user-deleted.event';
 import { UserUpdatedEvent } from './events/impl/user-updated.event';
-import { UserResponseCreatedEvent } from './events/impl/user-response-created.event';
 
 @Module({
   imports: [
@@ -54,6 +53,5 @@ export class UsersModule implements OnModuleInit {
     UserCreatedEvent: (data) => new UserCreatedEvent(data),
     UserDeletedEvent: (data) => new UserDeletedEvent(data),
     UserUpdatedEvent: (data) => new UserUpdatedEvent(data),
-    UserResponseCreatedEvent: (data) => new UserResponseCreatedEvent(data),
   };
 }

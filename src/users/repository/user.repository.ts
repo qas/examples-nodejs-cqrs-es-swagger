@@ -3,10 +3,6 @@ import { User } from '../models/user.model';
 
 @Injectable()
 export class UserRepository {
-  async findOneById(id: number): Promise<User> {
-    return new User('');
-  }
-
   async createUser(id) {
     const user = new User(id);
     user.createUser();

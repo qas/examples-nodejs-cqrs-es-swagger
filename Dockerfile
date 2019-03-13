@@ -12,20 +12,16 @@ RUN apk --no-cache add yarn
 FROM base AS dependencies
 # Install Node.js dependencies
 RUN cd /tmp && yarn --pure-lockfile
-# Copy production dependencies aside
-# RUN cp -R node_modules /tmp/node_modules
 
 ### RELEASE
-FROM base AS release
+FROM base AS development
 # Copy app sources
 COPY . .
-# Copy production dependencies
+# Copy dependencies
 COPY --from=dependencies /tmp/node_modules ./node_modules
-# In production environment
-# ENV NODE_ENV production
 # Expose application port
 EXPOSE 7070
 # Set command entrypoint
-# ENTRYPOINT ["yarn"]
+ENTRYPOINT ["yarn"]
 # Run
-# CMD ["start:prod"]
+CMD ["start:dev"]

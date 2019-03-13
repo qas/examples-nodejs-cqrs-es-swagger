@@ -9,8 +9,11 @@ services:
     ports:
       - 2113:2113
       - 1113:1113
+    environment:
+      - EVENTSTORE_RUN_PROJECTIONS=All
+      - EVENTSTORE_START_STANDARD_PROJECTIONS=true
     networks:
-      - main
+      - backend
 
   boilerplate-nodejs-cqrs-es-swagger:
     build:
@@ -24,12 +27,17 @@ services:
       - eventstore
     env_file:
       - "./.env"
+    environment:
+      - EVENT_STORE_HOSTNAME=eventstore
     ports:
       - "${CONTAINER_PORT}:7070"
     volumes:
       - "./src:/app/src"
+    links:
+      - eventstore
     networks:
-      - main
+      - backend
 
 networks:
-  main:
+  backend:
+    driver: bridge

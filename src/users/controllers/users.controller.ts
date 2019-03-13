@@ -15,7 +15,7 @@ export class UsersController {
   @ApiResponse({ status: 200, description: 'Create User.' })
   @Post()
   async create(@Body() userDto: UserDto): Promise<UserDto> {
-    return this.usersService.createUser(userDto);
+    return this.usersService.createUser({...{user_id: Math.random()}, ...userDto});
   }
 
   /* Update User */
@@ -24,7 +24,7 @@ export class UsersController {
   @ApiResponse({ status: 200, description: 'Update User.' })
   @Put(':user_id')
   async update(@Param() userId: UserIdRequestParamsDto, @Body() userDto: Partial<UserDto>) {
-    return this.usersService.updateUser(userDto);
+    return this.usersService.updateUser({...userId, ...userDto});
   }
 
   /* Delete User */

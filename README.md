@@ -25,6 +25,8 @@ Please note that commands have been implemented and they do write into the Event
 $ yarn
 ```
 
+make sure to enable all projections thru the event store dashboard
+
 ## Running the app
 
 ```bash

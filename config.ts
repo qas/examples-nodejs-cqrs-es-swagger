@@ -24,7 +24,7 @@ const configs = {
     // Event Store
     EVENT_STORE_SETTINGS: {
       protocol: process.env.EVENT_STORE_PROTOCOL || 'http',
-      hostname: process.env.EVENT_STORE_HOSTNAME || 'localhost',
+      hostname: process.env.EVENT_STORE_HOSTNAME || '0.0.0.0',
       tcpPort: process.env.EVENT_STORE_TCP_PORT ||  1113,
       httpPort: process.env.EVENT_STORE_HTTP_PORT ||  2113,
       credentials: {
