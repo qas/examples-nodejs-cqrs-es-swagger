@@ -1,7 +1,8 @@
 import { ICommand } from '@nestjs/cqrs';
+import { UserDto } from '../../dtos/common.dto';
 
 export class CreateUserCommand implements ICommand {
   constructor(
-    public readonly id: object,
+    public readonly userDto: UserDto,
   ) {}
 }

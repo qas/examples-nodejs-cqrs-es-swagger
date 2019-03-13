@@ -1,6 +1,7 @@
 import { EventPublisher, ICommandHandler, CommandHandler } from '@nestjs/cqrs';
 import { UpdateUserCommand } from '../impl/update-user.command';
 import { UserRepository } from '../../repository/user.repository';
+import { Logger } from '@nestjs/common';
 
 @CommandHandler(UpdateUserCommand)
 export class UpdateUserHandler
@@ -11,7 +12,7 @@ export class UpdateUserHandler
   ) {}
 
   async execute(command: UpdateUserCommand, resolve: (value?) => void) {
-    console.log('Async UpdateUserHandler...');
+    Logger.log('Async UpdateUserHandler...', 'CreateUserCommand');
 
     const { id } = command;
     const user = this.publisher.mergeObjectContext(

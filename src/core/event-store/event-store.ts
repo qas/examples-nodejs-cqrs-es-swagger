@@ -35,6 +35,7 @@ export class EventStore implements IEventPublisher, IMessageSource {
 
   async publish<T extends IEvent>(event: T) {
     const message = JSON.parse(JSON.stringify(event));
+    console.log(message)
     const streamName = `${this.category}-${message.id}`;
     const type = event.constructor.name;
     try {

@@ -1,6 +1,7 @@
 import { EventPublisher, ICommandHandler, CommandHandler } from '@nestjs/cqrs';
 import { CreateUserCommand } from '../impl/create-user.command';
 import { UserRepository } from '../../repository/user.repository';
+import { Logger } from '@nestjs/common';
 
 @CommandHandler(CreateUserCommand)
 export class CreateUserHandler
@@ -11,11 +12,11 @@ export class CreateUserHandler
   ) {}
 
   async execute(command: CreateUserCommand, resolve: (value?) => void) {
-    console.log('Async CreateUserHandler...');
+    Logger.log('Async CreateUserHandler...', 'CreateUserCommand');
 
-    const { id } = command;
+    const {userDto} = command;
     const user = this.publisher.mergeObjectContext(
-      await this.repository.createUser(id),
+      await this.repository.createUser(userDto),
     );
     user.commit();
     resolve();

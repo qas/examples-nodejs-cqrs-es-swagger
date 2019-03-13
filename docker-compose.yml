@@ -9,6 +9,8 @@ services:
     ports:
       - 2113:2113
       - 1113:1113
+    networks:
+      - main
 
   boilerplate-nodejs-cqrs-es-swagger:
     build:
@@ -26,3 +28,8 @@ services:
       - "${CONTAINER_PORT}:7070"
     volumes:
       - "./src:/app/src"
+    networks:
+      - main
+
+networks:
+  main:
