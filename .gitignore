@@ -87,6 +87,4 @@ api/swagger-spec/swagger.json
 *.0x/
 
 # .data
-!.data/eventstore/data/.keep
-!.data/eventstore/log/.keep
 .data/
