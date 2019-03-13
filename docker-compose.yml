@@ -9,9 +9,6 @@ services:
     ports:
       - 2113:2113
       - 1113:1113
-    volumes:
-      - "${DIR_DATA_PATH}/eventstore/data:/var/lib/eventstore"
-      - "${DIR_DATA_PATH}/eventstore/log:/var/log/eventstore"
 
   boilerplate-nodejs-cqrs-es-swagger:
     build:
@@ -27,3 +24,5 @@ services:
       - "./.env"
     ports:
       - "${CONTAINER_PORT}:7070"
+    volumes:
+      - "./src:/app/src"

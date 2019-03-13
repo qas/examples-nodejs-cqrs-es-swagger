@@ -5,7 +5,6 @@ LABEL maintainer "Qasim Soomro <qasim@soomro.com>"
 WORKDIR /app
 # Copy project specification and dependencies lock files
 COPY package.json yarn.lock tsconfig.json /tmp/
-COPY .yarn-cache.tgz /
 # Install yarn
 RUN apk --no-cache add yarn
 

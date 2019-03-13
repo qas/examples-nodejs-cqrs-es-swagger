@@ -1,4 +1,3 @@
-import path from 'path';
 import dotenv from 'dotenv';
 import pkg from './package.json';
 
@@ -13,7 +12,7 @@ const configs = {
     DEV: env === envDevelopmentName,
     // General
     NAME: process.env.APP_NAME || pkg.name,
-    TITLE: process.env.APP_TITLE || 'Forms Service',
+    TITLE: process.env.APP_TITLE || 'Users Service',
     DESCRIPTION: process.env.APP_DESCRIPTION || 'Forms API',
     // API
     PREFIX: process.env.APP_PREFIX || 'v1',
