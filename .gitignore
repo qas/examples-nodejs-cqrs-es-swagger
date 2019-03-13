@@ -85,3 +85,6 @@ api/swagger-spec/swagger.json
 
 # 0x
 *.0x/
+
+# .data
+.data/
