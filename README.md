@@ -37,6 +37,9 @@ $ yarn start:dev
 # production mode
 $ yarn start:prod
 
+# analyze production mode
+$ yarn start:analyze
+
 # using Docker
 $ ./scripts/up.sh # to start
 $ ./scripts/stop.sh # to stop
