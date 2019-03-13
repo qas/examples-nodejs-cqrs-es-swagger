@@ -1,0 +1,82 @@
+{
+  "name": "boilerplate-nodejs-cqrs-es-swagger",
+  "version": "0.0.0",
+  "description": "description",
+  "author": {
+    "name": "Qasim Soomro",
+    "email": "qasim@soomro.com",
+    "url": "http://www.qasimsoomro.com"
+  },
+  "license": "MIT",
+  "scripts": {
+    "build": "rm -rf dist && tsc",
+    "build:docker": "docker build --force-rm -t boilerplate-nodejs-cqrs-es-swagger .",
+    "start": "ts-node -r tsconfig-paths/register src/main.ts",
+    "start:dev": "nodemon",
+    "start:debug": "nodemon --config nodemon-debug.json",
+    "prestart:prod": "npm run build --scripts-prepend-node-path",
+    "start:prod": "node dist/src/main.js",
+    "start:analyze": "0x dist/src/main.js",
+    "lint": "tslint -p tsconfig.json -c tslint.json",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:cov": "jest --coverage",
+    "test:e2e": "jest --config ./test/jest-e2e.json"
+  },
+  "dependencies": {
+    "@nestjs/common": "^5.1.0",
+    "@nestjs/core": "^5.1.0",
+    "@nestjs/cqrs": "^5.1.1",
+    "@nestjs/microservices": "^5.7.3",
+    "@nestjs/swagger": "^2.5.1",
+    "class-transformer": "^0.2.0",
+    "class-validator": "^0.9.1",
+    "cli-color": "^1.4.0",
+    "dotenv": "^6.0.0",
+    "fastify": "^1.13.0",
+    "fastify-cors": "^0.2.0",
+    "fastify-formbody": "^2.0.1",
+    "fastify-swagger": "^0.15.1",
+    "geteventstore-promise": "^3.1.1",
+    "logform": "^2.1.2",
+    "reflect-metadata": "^0.1.12",
+    "rxjs": "^6.2.2",
+    "rxjs-compat": "^6.4.0",
+    "strict-event-emitter-types": "^2.0.0",
+    "typescript": "^3.0.1",
+    "winston": "^3.2.1",
+    "xml2js": "^0.4.19"
+  },
+  "devDependencies": {
+    "0x": "^4.7.3",
+    "@nestjs/testing": "^5.1.0",
+    "@types/express": "^4.16.0",
+    "@types/jest": "^23.3.9",
+    "@types/node": "^10.7.1",
+    "@types/supertest": "^2.0.5",
+    "jest": "^23.5.0",
+    "nodemon": "^1.18.3",
+    "prettier": "^1.14.2",
+    "rimraf": "^2.6.2",
+    "supertest": "^3.1.0",
+    "ts-jest": "^23.1.3",
+    "ts-loader": "^4.4.2",
+    "ts-node": "^7.0.1",
+    "tsconfig-paths": "^3.5.0",
+    "tslint": "5.11.0"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "src",
+    "testRegex": ".spec.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "coverageDirectory": "../coverage",
+    "testEnvironment": "node"
+  }
+}

@@ -1,0 +1,17 @@
+# Documentation
+# https://docs.docker.com/compose/compose-file
+
+version: '3'
+
+services:
+  boilerplate-nodejs-cqrs-es-swagger:
+    image: boilerplate-nodejs-cqrs-es-swagger:latest
+    command: ${CONTAINER_COMMAND}
+    restart: always
+    deploy:
+      mode: replicated
+      replicas: ${CONTAINER_SCALE}
+    env_file:
+      - "./.env"
+    ports:
+      - "${CONTAINER_PORT}:7070"
