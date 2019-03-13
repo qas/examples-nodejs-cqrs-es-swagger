@@ -11,6 +11,8 @@ This is an application boilerplate that demonstrates how to use Nest.js and Even
 
 Please note that commands have been implemented and they do write into the Event Store, however, queries for denormalized views have some boilerplate but it is up to you to implement them using your favorite database technology of choice.
 
+In case you don't feel like downloading dependencies locally, I've added support for Docker so follow those instructions in "Running the app" and you'll have everything up and running in less than 2 minutes.
+
 ## Dependency Table
 | Name        | Version           |
 | ------------- |:-------------: |
@@ -24,8 +26,6 @@ Please note that commands have been implemented and they do write into the Event
 ```bash
 $ yarn
 ```
-
-make sure to enable all projections thru the event store dashboard
 
 ## Running the app
 
@@ -42,7 +42,7 @@ $ yarn start:prod
 # analyze production mode
 $ yarn start:analyze
 
-# using Docker
+# using Docker ### preferred way
 $ ./scripts/up.sh # to start
 $ ./scripts/stop.sh # to stop
 ```
