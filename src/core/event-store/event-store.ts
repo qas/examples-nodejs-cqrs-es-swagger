@@ -13,7 +13,7 @@ const eventStoreHostUrl = config.EVENT_STORE_SETTINGS.protocol +
 /**
  * @class EventStore
  * @description The EventStore.org bridge. By design, the domain category
- * (i.e. form) events are being subscribed to. Upon events being received,
+ * (i.e. user) events are being subscribed to. Upon events being received,
  * internal event handlers are responsible for handling the events.
  */
 @Injectable()
