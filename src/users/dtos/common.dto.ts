@@ -9,5 +9,7 @@ export class UserDto {
   @IsString()
   readonly id!: string;
   @IsString()
-  readonly name!: string;
+  readonly firstName!: string;
+  @IsString()
+  readonly lastName!: string;
 }
