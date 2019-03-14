@@ -3,20 +3,22 @@ import { User } from '../models/user.model';
 
 @Injectable()
 export class UserRepository {
-  async createUser(id) {
-    const user = new User(id);
+  async createUser(userDto) {
+    const user = new User(null);
+    user.setData(userDto);
     user.createUser();
     return user;
   }
 
-  async updateUser(id) {
-    const user = new User(id);
+  async updateUser(userDto) {
+    const user = new User(userDto.userId);
+    user.setData(userDto);
     user.updateUser();
     return user;
   }
 
-  async deleteUser(id) {
-    const user = new User(id);
+  async deleteUser(userDto) {
+    const user = new User(userDto.userId);
     user.deleteUser();
     return user;
   }

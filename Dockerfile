@@ -21,7 +21,3 @@ COPY . .
 COPY --from=dependencies /tmp/node_modules ./node_modules
 # Expose application port
 EXPOSE 7070
-# Set command entrypoint
-ENTRYPOINT ["yarn"]
-# Run
-CMD ["start:dev"]

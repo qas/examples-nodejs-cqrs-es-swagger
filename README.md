@@ -42,7 +42,7 @@ $ yarn start:prod
 # analyze production mode
 $ yarn start:analyze
 
-# using Docker ### preferred way
+# using with Docker
 $ ./scripts/up.sh # to start
 $ ./scripts/stop.sh # to stop
 ```

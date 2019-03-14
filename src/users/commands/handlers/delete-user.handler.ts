@@ -12,11 +12,10 @@ export class DeleteUserHandler
   ) {}
 
   async execute(command: DeleteUserCommand, resolve: (value?) => void) {
-    Logger.log('Async DeleteUserHandler...', 'CreateUserCommand');
-
-    const { id } = command;
+    Logger.log('Async DeleteUserHandler...', 'DeleteUserCommand');
+    const {userDto} = command;
     const user = this.publisher.mergeObjectContext(
-      await this.repository.deleteUser(id),
+      await this.repository.deleteUser(userDto),
     );
     user.commit();
     resolve();

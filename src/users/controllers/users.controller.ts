@@ -1,7 +1,7 @@
 import { Controller, Get, Post, Param, Body, Delete, Put } from '@nestjs/common';
 import { ApiUseTags, ApiResponse, ApiOperation } from '@nestjs/swagger';
-import { UserIdRequestParamsDto } from '../dtos/common.dto';
-import { UserDto } from '../dtos/common.dto';
+import { UserIdRequestParamsDto } from '../dtos/users.dto';
+import { UserDto } from '../dtos/users.dto';
 import { UsersService } from '../services/users.service';
 
 @Controller('users')
@@ -15,15 +15,16 @@ export class UsersController {
   @ApiResponse({ status: 200, description: 'Create User.' })
   @Post()
   async create(@Body() userDto: UserDto): Promise<UserDto> {
-    return this.usersService.createUser({...{user_id: Math.random()}, ...userDto});
+    const userId = Math.floor(Math.random() * (999 - 100 + 1) + 100);
+    return this.usersService.createUser({...{userId}, ...userDto});
   }
 
   /* Update User */
   /*--------------------------------------------*/
   @ApiOperation({ title: 'Update User' })
   @ApiResponse({ status: 200, description: 'Update User.' })
-  @Put(':user_id')
-  async update(@Param() userId: UserIdRequestParamsDto, @Body() userDto: Partial<UserDto>) {
+  @Put(':userId')
+  async update(@Param() userId: UserIdRequestParamsDto, @Body() userDto: UserDto) {
     return this.usersService.updateUser({...userId, ...userDto});
   }
 
@@ -31,26 +32,26 @@ export class UsersController {
   /*--------------------------------------------*/
   @ApiOperation({ title: 'Delete User' })
   @ApiResponse({ status: 200, description: 'Delete User.' })
-  @Delete(':user_id')
+  @Delete(':userId')
   async delete(@Param() userId: UserIdRequestParamsDto) {
     return this.usersService.deleteUser(userId);
   }
 
-  /* List Users */
+  /* TODO: List Users */
   /*--------------------------------------------*/
   @ApiOperation({ title: 'List Users' })
   @ApiResponse({ status: 200, description: 'List Users.' })
   @Get()
   async find(@Param() param) {
-    return this.usersService.findUsers(param);
+    return this.usersService.findUsers();
   }
 
-  /* Find User */
+  /* TODO: Find User */
   /*--------------------------------------------*/
   @ApiOperation({ title: 'Get User' })
   @ApiResponse({ status: 200, description: 'Get User.' })
-  @Get(':user_id')
+  @Get(':userId')
   async findOne(@Param() userId: UserIdRequestParamsDto) {
-    return this.usersService.findUsers(userId);
+    return this.usersService.findUsers();
   }
 }

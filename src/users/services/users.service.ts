@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { CommandBus } from '@nestjs/cqrs';
-import { UserIdRequestParamsDto } from '../dtos/common.dto';
-import { UserDto } from '../dtos/common.dto';
+import { UserIdRequestParamsDto } from '../dtos/users.dto';
+import { UserDto } from '../dtos/users.dto';
 import { CreateUserCommand } from '../commands/impl/create-user.command';
 import { UpdateUserCommand } from '../commands/impl/update-user.command';
 import { DeleteUserCommand } from '../commands/impl/delete-user.command';
@@ -10,25 +10,25 @@ import { DeleteUserCommand } from '../commands/impl/delete-user.command';
 export class UsersService {
   constructor(private readonly commandBus: CommandBus) {}
 
-  async createUser(createUserDto: UserDto) {
+  async createUser(user: UserDto) {
     return await this.commandBus.execute(
-      new CreateUserCommand(createUserDto),
+      new CreateUserCommand(user),
     );
   }
 
-  async updateUser(createUserDto: Partial<UserDto>) {
+  async updateUser(user: UserDto) {
     return await this.commandBus.execute(
-      new UpdateUserCommand(createUserDto),
+      new UpdateUserCommand(user),
     );
   }
 
-  async deleteUser(userId: UserIdRequestParamsDto) {
+  async deleteUser(user: UserIdRequestParamsDto) {
     return await this.commandBus.execute(
-      new DeleteUserCommand(userId),
+      new DeleteUserCommand(user),
     );
   }
 
-  async findUsers(params) {
+  async findUsers() {
     // TODO
   }
 }

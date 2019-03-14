@@ -12,11 +12,11 @@ export class UpdateUserHandler
   ) {}
 
   async execute(command: UpdateUserCommand, resolve: (value?) => void) {
-    Logger.log('Async UpdateUserHandler...', 'CreateUserCommand');
+    Logger.log('Async UpdateUserHandler...', 'UpdateUserCommand');
 
-    const { id } = command;
+    const {userDto} = command;
     const user = this.publisher.mergeObjectContext(
-      await this.repository.updateUser(id),
+      await this.repository.updateUser(userDto),
     );
     user.commit();
     resolve();

@@ -1,5 +1,5 @@
 import * as clc from 'cli-color';
-import { Injectable } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 import { Observable } from 'rxjs';
 import { ICommand, EventObservable } from '@nestjs/cqrs';
 import { UserCreatedEvent } from '../events/impl/user-created.event';
@@ -11,11 +11,11 @@ export class UsersSagas {
     return events$
       .ofType(UserCreatedEvent)
       .pipe(
-        delay(1000),
+        delay(1000), // random delay
         map(event => {
-          console.log('Inside [UsersSagas] Saga');
-          // TODO - your would probably trigger a new command here to continue the saga of user creation
-          // TODO - remember this is just for example, as you may not even need sagas at all
+          Logger.log('Inside [UsersSagas] Saga', 'UsersSagas');
+          // TODO, you would probably trigger a new command here to continue the saga of user creation
+          // TODO, remember this is only an example, you may not even need sagas
           return '';
         }),
       );

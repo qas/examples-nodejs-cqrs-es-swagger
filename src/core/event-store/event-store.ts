@@ -35,15 +35,13 @@ export class EventStore implements IEventPublisher, IMessageSource {
 
   async publish<T extends IEvent>(event: T) {
     const message = JSON.parse(JSON.stringify(event));
-
-    const user = message.userDto;
-
-    const streamName = `${this.category}-${user.user_id}`;
+    const userId = message.userId || message.userDto.userId;
+    const streamName = `${this.category}-${userId}`;
     const type = event.constructor.name;
     try {
       await this.eventStore.client.writeEvent(streamName, type, event);
     } catch (err) {
-      console.error('event-store.ts >>>', err);
+      console.trace(err);
     }
   }
 
@@ -57,7 +55,6 @@ export class EventStore implements IEventPublisher, IMessageSource {
     const onEvent = async (event) => {
       const eventUrl = eventStoreHostUrl +
         `${event.metadata.$o}/${event.data.split('@')[0]}`;
-      // console.log(event);
       http.get(eventUrl, (res) => {
         res.setEncoding('utf8');
         let rawData = '';
@@ -65,7 +62,7 @@ export class EventStore implements IEventPublisher, IMessageSource {
         res.on('end', () => {
           xml2js.parseString(rawData, (err, result) => {
             if (err) {
-              console.error(err);
+              console.trace(err);
               return;
             }
             const content = result['atom:entry']['atom:content'][0];
@@ -79,13 +76,13 @@ export class EventStore implements IEventPublisher, IMessageSource {
     };
 
     const onDropped = (subscription, reason, error) => {
-      console.error(subscription, reason, error);
+      console.trace(subscription, reason, error);
     };
 
     try {
       await this.eventStore.client.subscribeToStream(streamName, onEvent, onDropped, false);
     } catch (err) {
-      console.error(err);
+      console.trace(err);
     }
   }
 
