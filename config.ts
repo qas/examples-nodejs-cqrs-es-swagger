@@ -12,8 +12,8 @@ const configs = {
     DEV: env === envDevelopmentName,
     // General
     NAME: process.env.APP_NAME || pkg.name,
-    TITLE: process.env.APP_TITLE || 'Users Service',
-    DESCRIPTION: process.env.APP_DESCRIPTION || 'Forms API',
+    TITLE: process.env.APP_TITLE || 'Users',
+    DESCRIPTION: process.env.APP_DESCRIPTION || 'Users API Microservice',
     // API
     PREFIX: process.env.APP_PREFIX || 'v1',
     VERSION: process.env.APP_VERSION || '1.0',

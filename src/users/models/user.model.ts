@@ -7,7 +7,7 @@ import { UserDto } from '../dtos/users.dto';
 export class User extends AggregateRoot {
   [x: string]: any;
 
-  constructor(private readonly id: string) {
+  constructor(private readonly id: string | undefined) {
     super();
   }
 

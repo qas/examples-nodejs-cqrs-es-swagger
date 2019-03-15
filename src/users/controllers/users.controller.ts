@@ -14,7 +14,7 @@ export class UsersController {
   @ApiOperation({ title: 'Create User' })
   @ApiResponse({ status: 200, description: 'Create User.' })
   @Post()
-  async create(@Body() userDto: UserDto): Promise<UserDto> {
+  async createUser(@Body() userDto: UserDto): Promise<UserDto> {
     const userId = Math.floor(Math.random() * (999 - 100 + 1) + 100);
     return this.usersService.createUser({...{userId}, ...userDto});
   }
@@ -24,7 +24,7 @@ export class UsersController {
   @ApiOperation({ title: 'Update User' })
   @ApiResponse({ status: 200, description: 'Update User.' })
   @Put(':userId')
-  async update(@Param() userId: UserIdRequestParamsDto, @Body() userDto: UserDto) {
+  async updateUser(@Param() userId: UserIdRequestParamsDto, @Body() userDto: UserDto) {
     return this.usersService.updateUser({...userId, ...userDto});
   }
 
@@ -33,7 +33,7 @@ export class UsersController {
   @ApiOperation({ title: 'Delete User' })
   @ApiResponse({ status: 200, description: 'Delete User.' })
   @Delete(':userId')
-  async delete(@Param() userId: UserIdRequestParamsDto) {
+  async deleteUser(@Param() userId: UserIdRequestParamsDto) {
     return this.usersService.deleteUser(userId);
   }
 
@@ -42,7 +42,7 @@ export class UsersController {
   @ApiOperation({ title: 'List Users' })
   @ApiResponse({ status: 200, description: 'List Users.' })
   @Get()
-  async find(@Param() param) {
+  async findUsers(@Param() param) {
     return this.usersService.findUsers();
   }
 
@@ -51,7 +51,7 @@ export class UsersController {
   @ApiOperation({ title: 'Get User' })
   @ApiResponse({ status: 200, description: 'Get User.' })
   @Get(':userId')
-  async findOne(@Param() userId: UserIdRequestParamsDto) {
+  async findOneUser(@Param() userId: UserIdRequestParamsDto) {
     return this.usersService.findUsers();
   }
 }
