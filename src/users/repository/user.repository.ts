@@ -22,4 +22,10 @@ export class UserRepository {
     user.deleteUser();
     return user;
   }
+
+  async welcomeUser(userDto) {
+    const user = new User(userDto.userId);
+    user.welcomeUser();
+    return user;
+  }
 }

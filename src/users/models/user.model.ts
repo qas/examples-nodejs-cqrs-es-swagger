@@ -2,6 +2,7 @@ import { AggregateRoot } from '@nestjs/cqrs';
 import { UserCreatedEvent } from '../events/impl/user-created.event';
 import { UserUpdatedEvent } from '../events/impl/user-updated.event';
 import { UserDeletedEvent } from '../events/impl/user-deleted.event';
+import { UserWelcomedEvent } from '../events/impl/user-welcomed.event';
 import { UserDto } from '../dtos/users.dto';
 
 export class User extends AggregateRoot {
@@ -21,6 +22,10 @@ export class User extends AggregateRoot {
 
   updateUser() {
     this.apply(new UserUpdatedEvent(this.data));
+  }
+
+  welcomeUser() {
+    this.apply(new UserWelcomedEvent(this.id));
   }
 
   deleteUser() {
