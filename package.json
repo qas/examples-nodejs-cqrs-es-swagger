@@ -16,7 +16,7 @@
     "start:debug": "nodemon --config nodemon-debug.json",
     "prestart:prod": "npm run build --scripts-prepend-node-path",
     "start:prod": "node dist/src/main.js",
-    "start:analyze": "0x dist/src/main.js",
+    "start:prod:analyze": "npm run prestart:prod && 0x dist/src/main.js",
     "lint": "tslint -p tsconfig.json -c tslint.json",
     "test": "jest",
     "test:watch": "jest --watch",
