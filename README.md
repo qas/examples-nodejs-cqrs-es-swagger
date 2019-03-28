@@ -44,7 +44,7 @@ $ yarn start:analyze
 
 # using with Docker
 $ ./scripts/up.sh # to start
-$ ./scripts/stop.sh # to stop
+$ ./scripts/down.sh # to stop
 ```
 
 ## Test
