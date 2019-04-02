@@ -47,6 +47,17 @@ $ ./scripts/up.sh # to start
 $ ./scripts/down.sh # to stop
 ```
 
+## Relateds Links
+Medium Article Series (Part 1):
+https://medium.com/@qasimsoomro/building-microservices-using-node-js-with-ddd-cqrs-and-event-sourcing-part-1-of-2-52e0dc3d81df
+
+Medium Article Series (Part 2):
+https://medium.com/@qasimsoomro/building-microservices-using-node-js-with-ddd-cqrs-and-event-sourcing-part-2-of-2-9a5f6708e0f
+
+Swagger Explorer URL: http://localhost:7070/api
+
+Event Store URL: http://localhost:2113
+
 ## Test
 
 ```bash
