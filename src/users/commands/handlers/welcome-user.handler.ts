@@ -1,5 +1,5 @@
 import { EventPublisher, ICommandHandler, CommandHandler } from '@nestjs/cqrs';
-import { WelcomeUserCommand } from '../impl/Welcome-user.command';
+import { WelcomeUserCommand } from '../impl/welcome-user.command';
 import { UserRepository } from '../../repository/user.repository';
 import { Logger } from '@nestjs/common';
 
