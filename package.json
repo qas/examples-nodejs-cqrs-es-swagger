@@ -33,7 +33,7 @@
     "class-validator": "^0.9.1",
     "cli-color": "^1.4.0",
     "dotenv": "^6.0.0",
-    "fastify": "^1.13.0",
+    "fastify": "^2.15.1",
     "fastify-cors": "^0.2.0",
     "fastify-formbody": "^2.0.1",
     "fastify-swagger": "^0.15.1",
