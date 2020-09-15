@@ -8,7 +8,7 @@ import * as http from 'http';
 import { config } from '../../../config';
 
 const eventStoreHostUrl = config.EVENT_STORE_SETTINGS.protocol +
-  `://${config.EVENT_STORE_SETTINGS.hostname}:${config.EVENT_STORE_SETTINGS.httpPort}/streams/`;
+  `://${config.EVENT_STORE_SETTINGS.credentials.username}:${config.EVENT_STORE_SETTINGS.credentials.password}@${config.EVENT_STORE_SETTINGS.hostname}:${config.EVENT_STORE_SETTINGS.httpPort}/streams/`;
 
 /**
  * @class EventStore
