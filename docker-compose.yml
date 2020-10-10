@@ -12,6 +12,7 @@ services:
     environment:
       - EVENTSTORE_RUN_PROJECTIONS=All
       - EVENTSTORE_START_STANDARD_PROJECTIONS=true
+      - EVENTSTORE_INSECURE=true
     networks:
       - backend
 
