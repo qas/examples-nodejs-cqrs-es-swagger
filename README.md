@@ -43,6 +43,7 @@ $ yarn start:prod
 $ yarn start:analyze
 
 # using with Docker
+$ cat ./env.example > ./env
 $ ./scripts/up.sh # to start
 $ ./scripts/down.sh # to stop
 ```
